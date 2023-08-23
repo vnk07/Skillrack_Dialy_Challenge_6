@@ -1,0 +1,73 @@
+# *******Skillrack_Dialy_Challenge_6*******
+
+#Program to convert python program to c program
+
+#Question:
+Python - C - 004 
+Please convert the following Python code to C so that the C program executes successfully passing the test cases. 
+
+strVal = input() 
+
+X = int(input()) 
+
+strLen = len(strVal) 
+
+print(((strVal[::-1] + strVal) * (X // (strLen * 2) + 1))[:X])
+
+
+Answer:
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+int main()
+
+{
+
+    char strval[150];
+
+    int x;
+
+
+    scanf("%s %d", strval, &x);  // Corrected variable name 'n' to 'x'
+
+    int len = strlen(strval);
+
+    int last = (x / (len * 2)) + 1;  // Added missing parentheses
+
+    char res[500];
+
+    int a = 0;
+
+    for (int i = 0; i < last; i++) {
+
+        for (int j = len - 1; j >= 0; j--) {
+
+            res[a] = strval[j];
+
+            a++;
+        }
+
+        for (int j = 0; j < len; j++) {  // Changed 'i' to 'j' in the loop control
+
+            res[a] = strval[j]; 
+
+            a++;
+
+        }
+
+    }
+
+    for (int i = 0; i < x; i++) {  // Fixed loop condition
+
+        printf("%c", res[i]);
+
+    }
+
+    return 0;  // Added a return statement
+
+}
+
+#Skillrack_Dialy_Challenge_6
